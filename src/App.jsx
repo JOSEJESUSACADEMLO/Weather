@@ -3,14 +3,15 @@ import axios from 'axios'
 import './App.css'
 import Clim from './Components/Clim'
  import City from './Components/City'
+import Loader from './Components/Loader'
 
 
 function App() {
   
   const [isVisible,setIsVisible ]=useState({})
   const [isGrade , setIsGrade]= useState(false)
-
   const [isValue,setIsValue]=useState("")
+  const [isLoading , setIsLoading]=useState(true)
   let aux=""
 
   
@@ -21,7 +22,13 @@ function App() {
 
     axios
     .get(`https://api.openweathermap.org/data/2.5/weather?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&appid=6235b1b8482460e5e216284863064c2f&lang=es&units=metric`)
-    .then(resp=> setIsVisible(resp.data))
+    .then(resp=> {
+      setIsVisible(resp.data)
+      setTimeout(()=>{
+        setIsLoading(false)
+   },500)
+    
+    })
     .catch(error =>console.error(error))
 
     })
@@ -91,6 +98,7 @@ const ciudad =() =>{
 
   return (
     <div className="App">
+        {isLoading && <Loader/>}
          <div className="display">
                 <section>
                    <h2 className='titulo'>Weather app</h2>
@@ -104,6 +112,14 @@ const ciudad =() =>{
                   onChange={(e) => setIsValue(e.target.value)}
                   value={isValue}/>
                   {<button className='Go' onClick={ciudad}>Ir</button>}
+                  
+                  <div className='togle'>
+                    <input type="checkbox" id="btn-switch"/>
+                    <label for="btn-switch" className="lbl-switch"></label>
+
+                  </div>
+
+                  
                 </section>
                 
                 

@@ -23,6 +23,7 @@ body{
 
 .baner2{
     display: flex;
+    
     flex-direction: row;
 }
 .titulo{
@@ -157,9 +158,62 @@ img{
     align-content: center;
     justify-content: center;
     cursor: pointer;
-    filter: drop-shadow(13px 7px 4px rgba(0,0,0,0.25));
+    filter: drop-shadow(13px 7px 4px rgba(238, 230, 230, 0.25));
     offset:0px , 4.85px ;
     font-family: 'Lato', sans-serif;
     color:rgb(8, 8, 8);
+
+}
+
+.togle{
+    margin-left: 290px;
+}
+
+
+
+
+/* MEDIAS QERYS PARA EL RESSPONSIVE*/
+@media (max-width:520px){
+
+    .baner2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    
+    .weather-card{/* SEGUNDO CONTENEDOR*/
+    margin-top: 110px;
+    margin-left: 180px;
+    width: 330px;
+    height: 170px;
+    background: linear-gradient(#E5F2FF,#D5F3FF ); 
+    border-radius: 4.85px;
+    font-family: 'Lato', sans-serif;
+    }
+
+    
+.Change{
+    background-color: #38A0D8;
+    margin-top: 50px;
+    display: flex;
+    margin-left: 170px;
+    margin-right: 100px;
+    width: 178px;
+    height: 38px;
+    padding: 1rem 2rem;
+    border: none;
+    outline: none;
+    border-radius: 4.85px;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    cursor: pointer;
+    filter: drop-shadow(13px 7px 4px rgba(0,0,0,0.25));
+    offset:0px , 4.85px ;
+    font-family: 'Lato', sans-serif;
+    color:aliceblue;
+
+}
 
 }
